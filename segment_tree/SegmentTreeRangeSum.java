@@ -1,6 +1,8 @@
 package segment_tree;
-
-public class SegmentTree2 {
+/**
+ * if a array contains {5,10,15} then segment tree will contain total of 1-5=15, 6-10=40 and so on
+ */
+public class SegmentTreeRangeSum {
 	// Java Program to show segment tree operations like construction,
 	// query and update
 	int st[]; // The array that stores segment tree nodes
@@ -12,7 +14,7 @@ public class SegmentTree2 {
 	 * allocates memory for segment tree and calls constructSTUtil() to fill the
 	 * allocated memory
 	 */
-	SegmentTree2(int arr[]) {
+	SegmentTreeRangeSum(int arr[]) {
 		n = arr.length;
 		// Allocate memory for segment tree
 		// Height of segment tree
@@ -143,7 +145,7 @@ public class SegmentTree2 {
 	public static void main(String args[]) {
 		int arr[] = { 500000, 500005, 500010};
 		int n = arr.length;
-		SegmentTree2 tree = new SegmentTree2(arr);
+		SegmentTreeRangeSum tree = new SegmentTreeRangeSum(arr);
 		tree.printLevels();
 		// Build segment tree from given array
 
