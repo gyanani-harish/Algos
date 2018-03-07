@@ -1,6 +1,8 @@
 package segment_tree;
+
 /**
- * if a array contains {5,10,15} then segment tree will contain total of 1-5=15, 6-10=40 and so on
+ * if a array contains {5,10,15} then segment tree will contain total of 1-5=15,
+ * 6-10=40 and so on
  */
 public class SegmentTreeRangeSum {
 	// Java Program to show segment tree operations like construction,
@@ -127,10 +129,14 @@ public class SegmentTreeRangeSum {
 	}
 
 	private int calculateValue(int i) {
-		
-		  int total = 0; for (int j = i - 4; j <= i; j++) { total += j; } return total;
-		 
-		//return i;
+
+		int total = 0;
+		for (int j = i - 4; j <= i; j++) {
+			total += j;
+		}
+		return total;
+
+		// return i;
 	}
 
 	private int calculateResult(int[] arr, int ss, int mid, int se, int si) {
@@ -143,7 +149,7 @@ public class SegmentTreeRangeSum {
 
 	// Driver program to test above functions
 	public static void main(String args[]) {
-		int arr[] = { 500000, 500005, 500010};
+		int arr[] = { 5, 10, 15 };
 		int n = arr.length;
 		SegmentTreeRangeSum tree = new SegmentTreeRangeSum(arr);
 		tree.printLevels();
@@ -164,17 +170,17 @@ public class SegmentTreeRangeSum {
 	private void printLevels() {
 		int j = 1;
 		int height = getHeight(st.length);
-		for (int l = height; l >=0; l--) {
+		for (int l = height; l >= 0; l--) {
 			System.out.print("  ");
 		}
 		height--;
 		for (int i = 0, k = 0; i < st.length; i++, k++) {
-			
+
 			System.out.print(st[i] + " ");
 			if (j - 1 == k) {
-				
+
 				System.out.println();
-				for (int l = height; l >=0; l--) {
+				for (int l = height; l >= 0; l--) {
 					System.out.print("  ");
 				}
 				height--;
