@@ -45,5 +45,5 @@ public class UglyNumber
         int n = 5;
         UglyNumber obj = new UglyNumber();
         System.out.println(obj.getNthUglyNo(n));
-    }
+    } 
 }
