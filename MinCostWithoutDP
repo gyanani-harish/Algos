@@ -1,0 +1,49 @@
+package abc;
+
+public class MinCostWithoutDP {
+
+	/*
+	 * A utility function that returns minimum of 3 integers
+	 */
+	static int min(int x, int y, int z) {
+		if (x < y)
+			return (x < z) ? x : z;
+		else
+			return (y < z) ? y : z;
+	}
+
+	/*
+	 * Returns cost of minimum cost path from (0,0) to (m, n) in mat[R][C]
+	 */
+	static int minCost(int cost[][], int m, int n) {
+		int cosst = 0;
+		int minCost = 0;
+		int minCost1=0,minCost2=0, minCost3=0;
+		if (n < 0 || m < 0)
+			return Integer.MAX_VALUE;
+		else if (m == 0 && n == 0)
+			return cost[m][n];
+		else {
+			minCost1 = minCost(cost, m - 1, n - 1);
+			minCost2 = minCost(cost, m - 1, n);
+			minCost3 = minCost(cost, m, n - 1);
+			
+			minCost = min(minCost1,minCost2, minCost3);
+			System.out.println("cost["+m+"]"+"["+n+"] = "+"["+(m-1)+"]["+(n-1)+"], ["+(m-1)+"]["+n+"], "+"["+m+"]["+(n-1)+"]");
+			System.out.println("min("+minCost1+","+minCost2+","+minCost3+") result ="+min(minCost1,minCost2, minCost3));
+			cosst = cost[m][n] + minCost;
+			//System.out.println("m="+m+" n="+n+" min="+minCost);
+			return cosst;
+		}
+	}
+
+	// Driver code
+	public static void main(String args[]) {
+
+		int cost[][] = { { 1, 2, 3 },
+						{ 4, 10, 14 },
+						{ 1, 5, 3 } };
+
+		System.out.print(minCost(cost, 2, 2));
+	}
+}
